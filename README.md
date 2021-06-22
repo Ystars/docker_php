@@ -1,17 +1,37 @@
 # docker_php
 
 #### 介绍
-学习docker和docker-compose
+一个简单使用docker部署php环境
 
 #### 软件架构
-软件架构说明
+一个简单使用docker部署php环境
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+⚠️记得如果不是root账号需要前面加`sudo`
+
+1. centos安装docker:
+    ```bash
+    1. curl -sSL https://get.daocloud.io/docker | sh
+    2. yum install -y yum-utils \
+      device-mapper-persistent-data \
+      lvm2
+    3. yum-config-manager \
+    --add-repo \
+    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+    4. yum install docker-ce docker-ce-cli containerd.io
+    5. systemctl start docker
+    ```
+2. centos安装docker-compose:
+    ```bash
+    1. curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    2. chmod +x /usr/local/bin/docker-compose
+    3. ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    测试是否安装成功：
+    4. docker-compose --version
+    ```
+
 
 #### 使用说明
 
