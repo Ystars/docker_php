@@ -8,25 +8,32 @@
 
 ⚠️记得如果不是root账号需要前面加`sudo`
 
-1. centos安装docker:
+1. CentOS 7.6安装docker:
     ```bash
     1. curl -sSL https://get.daocloud.io/docker | sh
     2. yum install -y yum-utils \
       device-mapper-persistent-data \
       lvm2
     3. yum-config-manager \
-    --add-repo \
+      --add-repo \
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
     4. yum install docker-ce docker-ce-cli containerd.io
     5. systemctl start docker
     ```
-2. centos安装docker-compose:
+2. CentOS 7.6安装docker-compose:
     ```bash
     1. curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     2. chmod +x /usr/local/bin/docker-compose
     3. ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     测试是否安装成功：
     4. docker-compose --version
+    ```
+3. 拷贝并命名配置文件（Windows系统请用`copy`命令），启动：
+    ```bash
+    $ cd dnmp                                            # 进入项目目录
+    $ cp env.example .env                                # 复制环境变量文件
+    $ cp docker-compose.yml.example docker-compose.yml   # 复制 docker-compose 配置文件。默认启动3个服务：
+    $ docker-compose up                                  # 启动
     ```
 
 

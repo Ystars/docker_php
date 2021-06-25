@@ -1,0 +1,50 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./services/nginx
+      args:
+        NGINX_VERSION: nginx:${NGINX_VERSION}
+    container_name: nginx
+    ports:
+      - "${NGINX_HTTP_PORT}:80"
+    volumes:
+      - ${PROJECTS_DIR}:/www/:rw
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
+      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
+      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
+      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
+      - ${NGINX_LOG_DIR}:/var/log/nginx:rw
+    environment:
+      TZ: "$TZ"
+    restart: always
+
+  php:
+    build:
+      context: ./services/php
+      args:
+        PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
+        PHP_EXTENSIONS: ${PHP_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: php
+    expose:
+      - 9501
+    volumes:
+      - ${PROJECTS_DIR}:/www/:rw
+      - ${PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP_LOG_DIR}:/var/log/php
+    restart: always
+
+  mysql:
+    image: mysql:${MYSQL_VERSION}
+    container_name: mysql
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ${MYSQL_CONF_FILE}:/etc/mysql/conf.d/mysql.cnf:ro
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql/:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      TZ: "$TZ"
+    restart: always
