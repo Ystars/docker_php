@@ -53,9 +53,9 @@
     $ docker-compose up                                  # 启动
     ```
 
-#### 网速太慢，无法下载或者Get https://registry-1.docker.io/v2/错误可以用以下方法解决
+#### 网速太慢，无法下载或者`Get https://registry-1.docker.io/v2/`错误可以用以下方法解决
 
-1.切换国内镜像`$ vi /etc/docker/daemon.json`
+1.  切换国内镜像`$ vi /etc/docker/daemon.json`
     ```bash
     {
         // 阿里云镜像
@@ -64,12 +64,12 @@
         // "registry-mirrors":["https://docker.mirrors.ustc.edu.cn"]
     }
     ```
-2.重启docker和daemon
+2.  重启docker和daemon
     ```bash
     systemctl daemon-reload
     systemctl restart docker
-    ``
-3.继续执行`$ docker-compose up`
+    ``1
+3.  继续执行`$ docker-compose up`
 
 
 #### 使用说明
