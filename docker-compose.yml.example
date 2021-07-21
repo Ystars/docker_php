@@ -18,6 +18,8 @@ services:
     environment:
       TZ: "$TZ"
     restart: always
+    networks: 
+      - backend
 
   php:
     build:
@@ -35,6 +37,8 @@ services:
       - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
       - ${PHP_LOG_DIR}:/var/log/php
     restart: always
+    networks: 
+      - backend
 
   mysql:
     image: mysql:${MYSQL_VERSION}
@@ -48,3 +52,9 @@ services:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
       TZ: "$TZ"
     restart: always
+    networks: 
+      - backend
+      
+networks: 
+  backend:
+    driver: bridge
