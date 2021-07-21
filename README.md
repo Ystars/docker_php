@@ -68,7 +68,7 @@
     ```bash
     systemctl daemon-reload
     systemctl restart docker
-    ``1
+    ```
 3.  继续执行`$ docker-compose up`
 
 
