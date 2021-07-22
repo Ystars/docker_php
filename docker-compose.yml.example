@@ -4,6 +4,7 @@ services:
     build:
       context: ./services/nginx
       args:
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
         NGINX_VERSION: nginx:${NGINX_VERSION}
     container_name: nginx
     ports:
@@ -25,6 +26,7 @@ services:
     build:
       context: ./services/php
       args:
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
         PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
         PHP_EXTENSIONS: ${PHP_EXTENSIONS}
         TZ: "$TZ"
@@ -54,7 +56,7 @@ services:
     restart: always
     networks: 
       - backend
-      
-networks: 
+     
+networks:
   backend:
-    driver: bridge
+    driver: bridge 
