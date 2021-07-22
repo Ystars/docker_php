@@ -8,6 +8,8 @@
 
 ```bash
 .
+├── data                           数据目录
+│   └── mysql                      MySQL数据目录
 ├── log                            日志目录 
 │   ├── nginx                      Nginx日志目录 
 │   └── php                        PHP日志目录
