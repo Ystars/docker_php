@@ -9,14 +9,16 @@
 ```bash
 .
 ├── data                           数据目录
-│   └── mysql                      MySQL数据目录
+│   ├── mysql                      MySQL数据目录
+│   └── redis                      Redis数据目录
 ├── log                            日志目录 
 │   ├── nginx                      Nginx日志目录 
 │   └── php                        PHP日志目录
 ├── services                       程序目录（含配置文件）
 │   ├── mysql                      MySQL配置文件
 │   ├── nginx                      Nginx程序目录（含配置文件）
-│   └── php                        PHP程序目录（含配置文件）
+│   ├── php                        PHP程序目录（含配置文件）
+│   └── redis                      Redis数据目录
 ├── www                            PHP代码程序
 ├── docker-compose.yml.example     Docker服务配置示例文件 
 └── env.example                    环境配置示例文件
