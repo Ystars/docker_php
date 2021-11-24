@@ -56,7 +56,22 @@ services:
     restart: always
     networks: 
       - backend
-     
+    
+  redis:
+    image: redis:${REDIS_VERSION}
+    container_name: redis
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - ${REDIS_CONF_FILE}:/etc/redis.conf:ro
+      - ${REDIS_DATA_DIR}:/data/:rw
+    restart: always
+    entrypoint: ["redis-server", "/etc/redis.conf"]
+    environment:
+      TZ: "$TZ"
+    networks:
+      - backend
+ 
 networks:
   backend:
     driver: bridge 
