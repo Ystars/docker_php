@@ -23,7 +23,7 @@ handle() {
 
         for ape in ${apecial//,/' '}
         do
-            if [ "$line" = "$ape" ]; then
+            if [ "${line}" = "${ape}" ]; then
                 ${ape}
                 continue 2
             fi
