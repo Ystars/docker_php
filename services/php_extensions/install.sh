@@ -45,6 +45,7 @@ handle() {
 
 #
 # Install extension from package file(.tgz),
+# url: https://pecl.php.net/packages.php
 # For example:
 #
 # installExtensionFromTgz swoole-4.8.2
