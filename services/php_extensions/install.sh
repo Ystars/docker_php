@@ -10,28 +10,34 @@ echo "multicore compilation   : ${MC}"
 echo "directory               : ${PWD}"
 echo "============================="
 
-if [ "${PHP_EXTENSIONS}" != "" ]; then
-    apk --update add --no-cache --virtual .bauild-deps autoconf g++ make curl-dev gettext-dev linux-headers
+if [ ! ${PHP_EXTENSIONS} ]; then
+    echo "======= Not PHP Extensions ======="
+    exit
 fi
+
+apk --update add --no-cache --virtual .bauild-deps autoconf g++ make curl-dev gettext-dev linux-headers
 
 handle() {
 
-    apecial=swoole
+    apecial=
 
     for line in ${PHP_EXTENSIONS//,/' '}
     do
 
-        for ape in ${apecial//,/' '}
-        do
-            if [ "${line}" = "${ape}" ]; then
-                ${ape}
-                continue 2
-            fi
-        done
+        if [ ${apecial} ]; then
+            for ape in ${apecial//,/' '}
+            do
+                if [ "${line}" = "${ape}" ]; then
+                    ${ape}
+                    continue 2
+                fi
+            done
+        fi
         
 
         echo "======= install ${line} ======="
-        docker-php-ext-install ${MC} ${line}
+        #docker-php-ext-install ${MC} ${line}
+        install-php-extensions ${line}
 
     done
 
@@ -56,12 +62,6 @@ installExtensionFromTgz()
     ( cd ${extensionName} && phpize && ./configure && make ${MC} && make install )
 
     docker-php-ext-enable ${extensionName} $2
-}
-
-swoole() {
-    echo "---------- Install swoole ----------"
-
-    installExtensionFromTgz swoole-4.8.2
 }
 
 handle
