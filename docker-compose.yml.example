@@ -26,7 +26,8 @@ services:
 
   php:
     build:
-      context: ./services/php
+      context: ./services
+      dockerfile: ./php/Dockerfile
       args:
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
         PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
