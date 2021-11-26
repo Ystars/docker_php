@@ -1,7 +1,7 @@
 # docker_php
 
 #### 介绍
-一个简单使用docker部署php环境G
+一个简单使用docker部署php环境
 
 
 #### 目录结构
