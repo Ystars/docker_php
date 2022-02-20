@@ -52,7 +52,7 @@
     ```
 3. 拷贝并命名配置文件（Windows系统请用`copy`命令），启动：
     ```bash
-    $ cd dnmp                                            # 进入项目目录
+    $ cd docker_php                                      # 进入项目目录
     $ cp env.example .env                                # 复制环境变量文件
     $ cp docker-compose.yml.example docker-compose.yml   # 复制 docker-compose 配置文件。默认启动3个服务：
     $ docker-compose up                                  # 启动
