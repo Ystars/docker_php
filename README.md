@@ -99,3 +99,11 @@
     加上`alias docker_mysql='docker exec -it mysql mysql -hlocalhost -uroot -p'`来快捷进入mysql。
     在这里记得注意的是保存后执行`source ~/.bashrc`命令。 
 3.  `docker ps`命令查看所有运行中的容器，后面携带`-a`可以查看所有容器
+4.  Syntax error: end of file unexpected (expecting “then“) 或者Syntax error: end of file unexp
+    ```bash
+    在vim下，文件结尾 输入
+
+    :set fileformat=unix修改ubuntu 和linux服务器、 dos等非图形界面冲突
+
+    :wq保存
+    ```
