@@ -41,6 +41,7 @@ services:
       - ${PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
       - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
       - ${PHP_LOG_DIR}:/var/log/php
+      - ${PHP_COMPOSER}:/tmp/composer
     restart: always
     networks: 
       - backend
