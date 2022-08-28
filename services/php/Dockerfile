@@ -25,6 +25,7 @@ RUN apk --no-cache add tzdata \
 RUN apk add --no-cache --repository http://${CONTAINER_PACKAGE_URL}/alpine/v3.13/community/ gnu-libiconv=1.15-r3
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
+# install compose && delete tmpfile
 RUN chmod +x install-composer.sh \
     && sh install-composer.sh \
     && rm -rf /tmp/extensions
