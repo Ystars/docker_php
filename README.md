@@ -1,4 +1,4 @@
-# docker_php
+# docker_compose
 
 #### 介绍
 一个简单使用docker部署php环境
