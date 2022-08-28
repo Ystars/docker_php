@@ -1,4 +1,4 @@
-# docker_compose
+# docker_php
 
 #### 介绍
 一个简单使用docker部署php环境
@@ -9,12 +9,15 @@
 ```bash
 .
 ├── data                           数据目录
+│   ├── elasticsearch              Elasticsearch数据目录
 │   ├── mysql                      MySQL数据目录
+│   ├── php_composer               PHP_Composer数据目录
 │   └── redis                      Redis数据目录
 ├── log                            日志目录 
 │   ├── nginx                      Nginx日志目录 
 │   └── php                        PHP日志目录
 ├── services                       程序目录（含配置文件）
+│   ├── elasticsearch              Elasticsearch配置文件
 │   ├── mysql                      MySQL配置文件
 │   ├── nginx                      Nginx程序目录（含配置文件）
 │   ├── php                        PHP程序目录（含配置文件）
