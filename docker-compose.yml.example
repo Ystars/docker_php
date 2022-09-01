@@ -96,6 +96,23 @@ services:
   #     - "${ELASTICSEARCH_HOST_PORT_C}:9200"
   #     - "${ELASTICSEARCH_HOST_PORT_S}:9300"
  
+  # clickhouse:
+  #   image: clickhouse/clickhouse-server
+  #   container_name: clickhouse
+  #   ports:
+  #     - "${CLICKHOUSE_PORT_JDBC}:8123"
+  #     - "${CLICKHOUSE_PORT_DRIVER}:9000"
+  #   volumes:
+  #     - ${CLICKHOUSE_DATA}:/var/lib/clickhouse:rw
+  #     - ${CLICKHOUSE_CONFIG}:/etc/clickhouse-server/config.xml:ro
+  #     - ${CLICKHOUSE_USERS}:/etc/clickhouse-server/users.xml:ro
+  #     - ${CLICKHOUSE_SERVER_LOG}:/var/log/clickhouse-server
+  #   restart: always
+  #   environment:
+  #     TZ: $TZ
+  #   networks:
+  #     - backend
+  
 networks:
   backend:
     driver: bridge 
