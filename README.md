@@ -11,9 +11,11 @@
 ├── data                           数据目录
 │   ├── clickhouse                 ClickHouse数据目录
 │   ├── elasticsearch              Elasticsearch数据目录
+│   ├── kafka                      Kafka数据目录
 │   ├── mysql                      MySQL数据目录
 │   ├── php_composer               PHP_Composer数据目录
-│   └── redis                      Redis数据目录
+│   ├── redis                      Redis数据目录
+│   └── zookeeper                  ZooKeeper数据目录
 ├── log                            日志目录 
 │   ├── clickhouse                 ClickHouse日志目录 
 │   ├── nginx                      Nginx日志目录 

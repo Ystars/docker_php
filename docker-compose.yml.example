@@ -95,7 +95,7 @@ services:
 #   ports:
 #     - "${ELASTICSEARCH_HOST_PORT_C}:9200"
 #     - "${ELASTICSEARCH_HOST_PORT_S}:9300"
- 
+
 # clickhouse:
 #   image: clickhouse/clickhouse-server
 #   container_name: clickhouse
@@ -112,7 +112,34 @@ services:
 #     TZ: $TZ
 #   networks:
 #     - backend
+
+# zookeeper:
+#   image: 'bitnami/zookeeper:${ZOOKEEPER_VERSION}'
+#   container_name: zookeeper
+#   ports:
+#     - '${ZOOKEEPER_PORT}:2181'
+#   volumes:
+#     - "${ZOOKEEPER_DATA}:/bitnami/zookeep"
+#   environment:
+#     TZ: $TZ
+#     ALLOW_ANONYMOUS_LOGIN: $ZOOKEEPER_ALLOW_ANONYMOUS_LOGIN
+#   restart: always
   
+# kafka:
+#   image: 'bitnami/kafka:${KAFKA_VERSION}'
+#   ports:
+#     - '${KAFKA_PORT}:9092'
+#   container_name: kafka
+#   volumes:
+#     - "${KAFKA_DATA}:/bitnami/kafka"
+#   environment:
+#     TZ: $TZ
+#     KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+#     ALLOW_PLAINTEXT_LISTENER: $ALLOW_PLAINTEXT_LISTENER
+#   depends_on:
+#     - zookeeper
+#   restart: always
+
 networks:
   backend:
-    driver: bridge 
+    driver: bridge
