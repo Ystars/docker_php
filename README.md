@@ -58,7 +58,11 @@
     测试是否安装成功：
     4. docker-compose --version
     ```
-3. 拷贝并命名配置文件（Windows系统请用`copy`命令），启动：
+3. CentOS 7.6设置开机自动启动docker:
+    ```bash
+    systemctl enable docker.service
+    ```
+4. 拷贝并命名配置文件（Windows系统请用`copy`命令），启动：
     ```bash
     $ cd docker_php                                      # 进入项目目录
     $ cp env.example .env                                # 复制环境变量文件
