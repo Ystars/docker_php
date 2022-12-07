@@ -19,22 +19,18 @@ apk --update add --no-cache --virtual .bauild-deps autoconf g++ make curl-dev ge
 
 handle() {
 
-    apecial=
+    mergeInstall=
 
     for line in ${PHP_EXTENSIONS//,/' '}
     do
 
-        if [ ${apecial} ]; then
-            for ape in ${apecial//,/' '}
-            do
-                if [ "${line}" = "${ape}" ]; then
-                    ${ape}
-                    continue 2
-                fi
-            done
+        if [[ -z "${line##*|tgz*}" ]]; then
+            installTgz=${line//|tgz/}
+            echo "======= install tgz ${installTgz} ======="
+            installExtensionFromTgz ${installTgz}
+            continue 1
         fi
-        
-
+        mergeInstall=${mergeInstall}" "${line}
         echo "======= install ${line} ======="
         #docker-php-ext-install ${MC} ${line}
         install-php-extensions ${line}
