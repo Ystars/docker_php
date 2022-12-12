@@ -107,11 +107,14 @@
     $ docker-compose rm php                     # 删除并且停止php容器
     $ docker-compose down                       # 停止并删除容器，网络，图像和挂载卷
     ```
-2.  可以用命令`docker exec -it`进入到容器，我们可以通过`~/.bashrc`或者`~/.zshrc`文件，
+
+#### 常见问题
+
+1.  可以用命令`docker exec -it`进入到容器，我们可以通过`~/.bashrc`或者`~/.zshrc`文件，
     加上`alias docker_mysql='docker exec -it mysql mysql -hlocalhost -uroot -p'`来快捷进入mysql。
     在这里记得注意的是保存后执行`source ~/.bashrc`命令。 
-3.  `docker ps`命令查看所有运行中的容器，后面携带`-a`可以查看所有容器
-4.  Syntax error: end of file unexpected (expecting “then“) 或者Syntax error: end of file unexp
+2.  `docker ps`命令查看所有运行中的容器，后面携带`-a`可以查看所有容器
+3.  Syntax error: end of file unexpected (expecting “then“) 或者Syntax error: end of file unexp
     ```bash
     在vim下，文件结尾 输入
 
@@ -119,3 +122,7 @@
 
     :wq保存
     ```
+4. 如果docker-client很卡可以试试关闭以下开关，不过关闭会导致镜像和容器丢失
+   ```bash
+   Use the WSL 2 based engine
+   ```
