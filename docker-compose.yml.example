@@ -134,7 +134,9 @@ services:
 #     - "${KAFKA_DATA}:/bitnami/kafka"
 #   environment:
 #     TZ: $TZ
+#     KAFKA_CFG_LISTENERS: $KAFKA_CFG_LISTENERS
 #     KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+#     KAFKA_CFG_ADVERTISED_LISTENERS: $KAFKA_CFG_ADVERTISED_LISTENERS
 #     ALLOW_PLAINTEXT_LISTENER: $ALLOW_PLAINTEXT_LISTENER
 #   depends_on:
 #     - zookeeper
