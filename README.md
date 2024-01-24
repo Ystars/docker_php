@@ -126,3 +126,4 @@
    ```bash
    Use the WSL 2 based engine
    ```
+5. window安装出现install.sh: line 25: syntax error: unexpected word (expecting "do")或者文件没有权限。可以通过vscode把shell文件CRLF格式改成LF
